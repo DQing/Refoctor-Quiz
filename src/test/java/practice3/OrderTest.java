@@ -22,10 +22,8 @@ public class OrderTest {
         List<BigDecimal> discounts = asList(new BigDecimal(10),
                 new BigDecimal(5),
                 new BigDecimal(3));
-        Order order = new Order(orderLineItemList, discounts);
-
         //When
-        BigDecimal total = order.calculate();
+        BigDecimal total = PriceCalculator.calculate(orderLineItemList, discounts);
         BigDecimal expectedTotal = new BigDecimal(178.2);
 
         //Then
